@@ -1,0 +1,123 @@
+Update your Node.js to version 8 or later required by Angular 6
+Update Http to HttpClient introduced in Angular 4.3+
+Update animations import from @angular/core to @angular/animations
+Update or install the Angular CLI to version 6 globally and locally per project
+Displays packages that need updating using ng update
+Update core packages using ng update @angular/core
+Update RxJS package using ng update rxjs
+Update Angular Material, if used, using ng update @angular/material
+NodeJS 8+ installed on your machine
+You are using the new Angular 4.3+ HttpClient and HttpClientModule. If that's not the case then don't worry the process is simple and transparent just replace HttpModule with HttpClientModule and use Http with HttpClient
+You are importing animations from @angular/animations instead of @angular/core
+
+
+
+Installing or Updating the Angular CLI to Version 6
+Updating the Angular CLI is easy and it's a matter of installing the latest version from npm using the following command:
+
+npm install -g @angular/cli 
+You may need to add sudo depending on your npm configuration.
+
+Also it goes without saying that you need Node.js 8+ and NPM installed on your system to be able to install and run Angular CLI 6.
+
+Updating Angular 5 CLI to Version 6 (Method 2)
+You can also uninstall the previous Angular CLI 5 version before you install the latest version using the following command:
+
+npm uninstall -g angular-cli
+npm cache clean    
+Next run the npm install command globally:
+
+npm install -g @angular/cli 
+Upgrading Angular 4|5 Projects
+First, start by installing the Angular CLI 6 locally using the following command (Make sure you are inside your project's root folder):
+
+npm install @angular/cli@latest
+Updating Configuration Files
+There are many differences between Angular 4|5 and Angular 6 such as
+
+Angular 6 uses angular.json instead of angular-cli.json.
+Different versions of dependencies in package.json etc.
+You can update different configuration files automatically by running the following command from the project's root folder:
+
+
+ng update @angular/cli
+Discovering Packages to Update
+Angular CLI has a new utility that allows you to automatcially analyze your project's package.json file and displays dependencies that need to be updated.
+
+Using you terminal from the root folder of your Angular 5 project run the following command:
+
+ng update
+This is an example output from this command:
+
+
+
+Upgrading Core Packages to Angular 6
+Now you need to update the core packages/dependencies to Angular 6. Simply run the following command:
+
+ng update @angular/core
+Upgrading RxJS
+You can update RxJS using the ng update command:
+
+ng update rxjs
+Upgrading Angular 2 Projects
+Now how about existing Angular 2 projects, generated using the Angular CLI?
+
+You can easily update them to use latest dependencies by following these instructions:
+
+First check your versions of installed Angular CLI and other dependencies with:
+
+ng --version 
+In my case, I'm getting this output:
+
+    @angular/cli: 1.0.0
+    node: 7.9.0
+    os: linux ia32
+    @angular/animations: 4.1.2
+    @angular/common: 4.1.2
+    @angular/compiler: 4.1.2
+    @angular/core: 4.1.2
+    @angular/forms: 4.1.2
+    @angular/http: 4.1.2
+    @angular/platform-browser: 4.1.2
+    @angular/platform-browser-dynamic: 4.1.2
+    @angular/platform-server: 4.1.2
+    @angular/router: 4.1.2
+    @angular/cli: 1.0.0
+    @angular/compiler-cli: 4.1.2
+Since we have installed the latest Angular CLI globally. If you try to serve your project you'll be getting a warning of version mismatch:
+
+
+Your global Angular CLI version (1.2.5) is greater than your local
+version (1.0.0). The local Angular CLI version is used.
+To disable this warning use "ng set --global warnings.versionMismatch=false".
+
+Next open your project package.json file then change the Angular CLI version: You can check the npm info page for Angular CLI package from this link to find out the latest version.
+
+    "@angular/cli": "1.2.5"
+Next, delete your project node_modules folder and run the following command:
+
+
+npm install
+You don't need to change the versions of the other dependencies, the Angular CLI will take care of fetching latest versions.
+
+Now you can check again for installed versions with:
+
+ng --version 
+In my case I'm getting this output:
+
+    @angular/cli: 1.2.5
+    node: 7.9.0
+    os: linux ia32
+    @angular/animations: 4.3.1
+    @angular/common: 4.3.1
+    @angular/compiler: 4.3.1
+    @angular/core: 4.3.1
+    @angular/forms: 4.3.1
+    @angular/http: 4.3.1
+    @angular/platform-browser: 4.3.1
+    @angular/platform-browser-dynamic: 4.3.1
+    @angular/platform-server: 4.3.1
+    @angular/router: 4.3.1
+    @angular/cli: 1.2.5
+    @angular/compiler-cli: 4.3.1
+As you can see Angular 4.3.1 is installed
