@@ -5,7 +5,7 @@
   "scripts": {
     "ng": "ng",
     "http-server": "http-server dist/ -c-1",
-    "start": "ng serve",
+    "start": "ng serve --open",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
