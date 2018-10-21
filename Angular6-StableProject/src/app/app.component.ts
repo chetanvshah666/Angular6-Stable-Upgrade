@@ -30,13 +30,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    debugger;
     this.translateService.setDefaultLang('en');
     this.translateService.use(this.language);
 
     // With this we load the default language in the main bundle (cache busting)
     this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
 
-    this.title.setTitle('Angular Example App');
+    this.title.setTitle('Angular6 Stable Project');
 
     this.onEvents();
     this.checkBrowser();
@@ -65,6 +66,7 @@ export class AppComponent implements OnInit {
   }
 
   checkBrowser() {
+    debugger;
     if (UtilsHelperService.isBrowserValid()) {
       this.checkBrowserFeatures();
     } else {
